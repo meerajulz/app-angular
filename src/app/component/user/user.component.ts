@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, input, signal } from '@angular/core';
 import { DUMMY_USERS } from '../../dummy-users';
 
 @Component({
@@ -8,8 +8,10 @@ import { DUMMY_USERS } from '../../dummy-users';
   styleUrls: ['./user.component.scss'],
 })
 export class UserComponent {
-  @Input() avatar!: string;
-  @Input() name!: string;
+  // @Input({ required: true }) avatar!: string;
+  // @Input({ required: true }) name!: string;
+  name = input<string>(''); // @Input() name!: string;
+  avatar = input<string>(''); // @Input() avatar!: string;
 
   get imagePath(): string {
     return `assets/users/${this.avatar}`;
